@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
-    return render(request, 'WebFinal/templates/inicio.html')
+def inicio(request):
+    return render(request, '/Users/harkonen/Desktop/ProyectoFinal/ProyectoFinal/WebFinal/templates/inicio.html')
