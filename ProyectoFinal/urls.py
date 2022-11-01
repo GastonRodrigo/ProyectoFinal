@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from WebFinal.views import form_cliente
 from WebFinal.views import inicio
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio/', inicio),
+    path('form_cliente/', form_cliente),
 ]

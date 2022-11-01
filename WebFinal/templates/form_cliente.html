@@ -1,0 +1,13 @@
+{% extends 'inicio.html' %}
+
+{% load static %}
+
+{% block secciones %}
+
+<form action="{% url 'form_cliente' %}" method="POST">{% csrf_token %}
+
+
+
+</form>
+
+{% endblock %}
