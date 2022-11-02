@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -6,11 +6,12 @@ from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
 from WebFinal.models import cliente
 from WebFinal.forms import Formulario_cliente
-
+from WebFinal.models import *
+from WebFinal.forms import *
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'I:/Python/Proyectos/ProyectoFinal/WebFinal/templates/inicio.html')
+    return render(request, '/Users/harkonen/Desktop/ProyectoFinal/ProyectoFinal/WebFinal/templates/inicio.html')
 
 def form_cliente(request):
 
@@ -29,3 +30,23 @@ def form_cliente(request):
         add_cliente = Formulario_cliente()
 
     return render(request, 'form_cliente.html')
+
+
+def form_empleado(request):
+    #cuerpo 
+
+    return render(request, 'form_empleado')
+
+
+def form_productos(request):
+    #cuerpo 
+
+    return render(request, 'form_productos')
+
+
+
+def form_proveedores(request):
+   #cuerpo 
+
+    return render(request, 'form_proveedores')
+
