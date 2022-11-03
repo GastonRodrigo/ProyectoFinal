@@ -11,6 +11,7 @@ urlpatterns = [
     path('cliente_creado/', form_cliente, name='clientecreado'),
     path('lista_clientes/', lista_clientes, name='lista_clientes'),
     path('borracliente/<int:id>', borracliente, name='borracliente'),
-    path('editar-cliente/<int:id>', editar_cliente, name='editarcliente')
+    path('editar-cliente/<int:id>', editar_cliente, name='editarcliente'),
+    path('crear_exito/', creado_con_exito, name='crear_exito')
 
 ]

@@ -40,7 +40,7 @@ class CrearCliente(CreateView):
     model = Cliente
     form_class = Formulario_cliente
     template_name = 'form_cliente.html'
-    success_url = '/WebFinal/lista_clientes/'
+    success_url = '/WebFinal/crear_exito/'
 
 
     #READ
@@ -49,6 +49,11 @@ def lista_clientes(request):
     clientes = Cliente.objects.all()
 
     return render(request, "lista_clientes.html", {"clientes": clientes})
+
+def creado_con_exito(request):
+
+    return render(request,'crear_exito.html')
+
     #EDIT
 
 def borracliente(request, id):
