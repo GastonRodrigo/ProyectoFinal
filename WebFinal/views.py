@@ -40,7 +40,7 @@ class CrearCliente(CreateView):
     model = Cliente
     form_class = Formulario_cliente
     template_name = 'form_cliente.html'
-    success_url = '/cliente_creado/'
+    success_url = '/WebFinal/lista_clientes/'
 
 
     #READ
