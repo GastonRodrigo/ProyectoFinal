@@ -11,7 +11,8 @@ from WebFinal.forms import *
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'inicio.html')
+
+    return render(request, 'inicio2.html')
 
 def form_cliente(request):
 
@@ -32,6 +33,15 @@ def form_cliente(request):
         add_cliente = Formulario_cliente()
 
     return render(request, 'form_cliente.html', {'add_cliente': add_cliente})
+
+
+class CrearCliente(CreateView):
+
+    model = Cliente
+    form_class = Formulario_cliente
+    template_name = 'form_cliente.html'
+    success_url = '/cliente_creado/'
+
 
     #READ
 def lista_clientes(request):
@@ -54,6 +64,8 @@ def borracliente(request, id):
 
 def editar_cliente(request, id):
 
+    print('method:', request.method)
+    print('post: ', request.POST)
 
     cliente = Cliente.objects.get(id=id)
 
@@ -72,7 +84,7 @@ def editar_cliente(request, id):
 
             cliente.save()
 
-            return render(request, 'lista_clientes.html')
+            return HttpResponseRedirect('/WebFinal/lista_clientes/')
     
     else:
 

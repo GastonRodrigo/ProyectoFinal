@@ -6,7 +6,7 @@
 
 <form action="{% url 'form_cliente' %}" method="POST">{% csrf_token %}
 
-    {{add_cliente.as_p}}
+    {{form.as_p}}
 
     <input type="submit" value='Crear'/>
     

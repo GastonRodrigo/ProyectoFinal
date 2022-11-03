@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block contenidoQueCambia %}
+{% block secciones %}
         
     <form action="{% url 'editarcliente' id %}" method="POST">{% csrf_token %}
 
@@ -12,4 +12,4 @@
 
     </form>
 
-{% endblock contenidoQueCambia %}
+{% endblock %}
