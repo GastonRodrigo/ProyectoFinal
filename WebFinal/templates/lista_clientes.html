@@ -1,0 +1,28 @@
+{% extends 'inicio.html' %}
+
+{% load static %}
+
+{% block secciones %}
+
+    <h1> Lista de Clientes: </h1>
+
+    <ul>
+
+        {% for cliente in clientes %}
+        <li>
+            {{cliente}}
+        </li>
+        <div>
+            <form action="{% url 'borracliente' cliente.id %}" method="POST">{% csrf_token %}
+                <button type="submit"> Eliminar </button>
+            </form>
+            <button>
+                <a href="{% url 'editarcliente' cliente.id %}" >Editar</a>
+            </button>
+        </div>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

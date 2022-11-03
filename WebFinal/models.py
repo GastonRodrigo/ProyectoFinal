@@ -8,7 +8,7 @@ class Cliente(models.Model):
     telefono = models.CharField(max_length=30)
     direccion = models.CharField(max_length=60)
     def __str__(self):
-        return f'{self.nombre} - {self.apellido}'
+        return f'{self.nombre} {self.apellido} Tel: {self.telefono} Dir: {self.direccion}'
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=30)
