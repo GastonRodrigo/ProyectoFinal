@@ -23,9 +23,9 @@ from WebFinal.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio/', inicio),
-    path('form_cliente/', form_cliente),
+    path('form_cliente/', form_cliente, name='form_cliente'),
     path('form_empleado/', form_empleado),
     path('form_productos/', form_productos),
     path('form_proveedores/', form_proveedores),
-    
+
 ]
