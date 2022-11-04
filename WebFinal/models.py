@@ -25,7 +25,7 @@ class Proveedores(models.Model):
     telefono = models.CharField(max_length=30)
     direccion = models.CharField(max_length=60)
     def __str__(self):
-        return f'Nombre: {self.nombre} Tipo: {self.tipo} Tel: {self.telefono} Dir: {self.direccion}'
+        return f'Nombre: {self.nombre} Tipo: {self.tipo}'
 
 class Productos(models.Model):
     modelo = models.CharField(max_length=30)

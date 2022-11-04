@@ -226,10 +226,51 @@ def producto_actualizado(request):
 
 #     return render(request, 'form_productos')
 
+# PROVEEDORES
 
+class CrearProveedor(CreateView):
 
-def form_proveedores(request):
-   #cuerpo 
+    model = Proveedores
+    form_class = Formulario_proveedores
+    template_name = 'crea_proveedor.html'
+    success_url = '/WebFinal/exito_proveedor/'
 
-    return render(request, 'form_proveedores')
+def proveedorcreado(request):
+
+    return render(request, 'exito_proveedor.html')
+
+class ListaProveedores(ListView):
+
+    model = Proveedores
+    form_class = Formulario_proveedores
+    template_name = 'lista_proveedores.html'
+    context_object_name = "proveedores"
+
+class Detalle_Proveedor(DetailView):
+
+    model = Proveedores
+    template_name = "detalle_proveedor.html"
+    context_object_name = "proveedor"
+
+class BorraProveedor(DeleteView):
+
+        model = Proveedores
+        template_name = 'borrarproveedor.html'
+        success_url = '/WebFinal/lista_proveedores'
+
+class EditarProveedor(UpdateView):
+
+    model = Proveedores
+    template_name = "proveedor_update.html"
+    fields = ('__all__')
+    success_url = '/WebFinal/exito_update_proveedor/'
+
+def proveedor_actualizado(request):
+
+    return render(request, 'exito_update_proveedor.html')
+
+# def form_proveedores(request):
+#    #cuerpo 
+
+#     return render(request, 'form_proveedores')
 
