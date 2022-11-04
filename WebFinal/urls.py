@@ -5,7 +5,7 @@ from .views import *
 urlpatterns = [
     path('inicio2/', inicio, name='inicio2'),
     path('form_proveedores/', form_proveedores, name='form_proveedores'),
-    path('form_productos/', form_productos, name='form_productos'),
+    #path('form_productos/', form_productos, name='form_productos'),
     path('form_cliente/', CrearCliente.as_view(), name='form_cliente'),  
     #path('cliente_creado/', form_cliente, name='clientecreado'),
     path('lista_clientes/', Mostrar_clientes.as_view(), name='lista_clientes'),
@@ -22,5 +22,12 @@ urlpatterns = [
     path('borra_empleado/<pk>', BorraEmpleado.as_view(), name='borraempleado'),
     path('empleadoupdate/<pk>', EditarEmpleado.as_view(), name='empleadoupdate'),
     path('exito_update_empleado/', empleado_actualizado, name='empleadoactualizado'),
+    path('crear_producto/', CrearProducto.as_view(), name='crear_producto'),  
+    path('exito_producto/', productocreado, name='productocreado'),
+    path('lista_productos/', ListaProductos.as_view(), name='lista_productos'),
+    path('detalle_producto/<pk>',Detalle_Producto.as_view(),name='detalle_producto'),
+    path('borra_producto/<pk>', BorraProducto.as_view(), name='borraproducto'),
+    path('productoupdate/<pk>', EditarProducto.as_view(), name='productoupdate'),
+    path('exito_update_producto/', producto_actualizado, name='productoactualizado'),
 
 ]

@@ -9,7 +9,7 @@ class Formulario_cliente(forms.ModelForm):
     # direccion = forms.CharField(max_length=60)
     class Meta:
         model = Cliente 
-        fields = ("nombre","apellido", "telefono", "direccion")
+        fields = ("nombre","apellido", "dni", "telefono", "direccion")
 
 
 class Formulario_empleado(forms.ModelForm):

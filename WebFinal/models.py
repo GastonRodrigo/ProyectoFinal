@@ -5,10 +5,11 @@ from unittest.util import _MAX_LENGTH
 class Cliente(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
+    dni = models.CharField(max_length=10)
     telefono = models.CharField(max_length=30)
     direccion = models.CharField(max_length=60)
     def __str__(self):
-        return f'{self.nombre} {self.apellido} Tel: {self.telefono} Dir: {self.direccion}'
+        return f'{self.nombre} {self.apellido}'
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=30)
@@ -16,7 +17,7 @@ class Empleado(models.Model):
     area = models.CharField(max_length=30)
     cargo = models.CharField(max_length=30)
     def __str__(self):
-        return f'{self.nombre} {self.apellido} Area: {self.area} Cargo: {self.cargo}'
+        return f'{self.nombre} {self.apellido}'
 
 class Proveedores(models.Model):
     nombre = models.CharField(max_length=30)

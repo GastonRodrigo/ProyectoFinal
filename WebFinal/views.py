@@ -131,9 +131,9 @@ class Borracliente(DeleteView):
 #         return render(request, "editarcliente.html", {"cliente_edit": cliente_edit, "id": cliente.id})
 
 
-def form_empleado(request):
-    #cuerpo 
-    return render(request, 'form_empleado')
+# def form_empleado(request):
+#     #cuerpo 
+#     return render(request, 'form_empleado')
 
 class Empleados(CreateView):
 
@@ -178,10 +178,53 @@ def empleado_actualizado(request):
 
     return render(request, 'exito_update_empleado.html')
 
-def form_productos(request):
-    #cuerpo 
+# PRODUCTOS
 
-    return render(request, 'form_productos')
+class CrearProducto(CreateView):
+
+    model = Productos
+    form_class = Formulario_productos
+    template_name = 'crea_producto.html'
+    success_url = '/WebFinal/exito_producto/'
+
+def productocreado(request):
+
+    return render(request, 'exito_producto.html')
+
+class ListaProductos(ListView):
+
+    model = Productos
+    form_class = Formulario_productos
+    template_name = 'lista_productos.html'
+    context_object_name = "productos"
+
+class Detalle_Producto(DetailView):
+
+    model = Productos
+    template_name = "detalle_producto.html"
+    context_object_name = "producto"
+
+class BorraProducto(DeleteView):
+
+        model = Productos
+        template_name = 'borrarproducto.html'
+        success_url = '/WebFinal/lista_productos'
+
+class EditarProducto(UpdateView):
+
+    model = Productos
+    template_name = "producto_update.html"
+    fields = ('__all__')
+    success_url = '/WebFinal/exito_update_producto/'
+
+def producto_actualizado(request):
+
+    return render(request, 'exito_update_producto.html')
+
+# def form_productos(request):
+#     #cuerpo 
+
+#     return render(request, 'form_productos')
 
 
 
