@@ -132,6 +132,17 @@ def form_empleado(request):
 
     return render(request, 'form_empleado')
 
+class Empleados(CreateView):
+
+    model = Cliente
+    form_class = Formulario_empleado
+    template_name = 'crea_empleado.html'
+    success_url = '/WebFinal/exito_empleado/'
+
+def empleado_creado(request):
+
+    return render(request, 'exito_empleado.html')
+
 
 def form_productos(request):
     #cuerpo 
