@@ -22,9 +22,9 @@
             </a>
         </li>
         <div>
-            <form action="{% url 'borracliente' cliente.id %}" method="POST">{% csrf_token %}
-                <button type="submit"> Eliminar </button>
-            </form>
+            <button>
+                <a href="{% url 'borracliente' cliente.id %}">Eliminar</a>
+            </button>
             <button>
                 <a href="{% url 'clienteupdate' cliente.id %}">Modificar</a>
             </button>

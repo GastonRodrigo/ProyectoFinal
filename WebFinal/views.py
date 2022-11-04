@@ -61,16 +61,16 @@ class Mostrar_clientes(ListView):
     context_object_name = "clientes"
     #EDIT
 
-def borracliente(request, id):
+# def borracliente(request, id):
 
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        cliente = Cliente.objects.get(id=id)
-        cliente.delete()
+#         cliente = Cliente.objects.get(id=id)
+#         cliente.delete()
 
-        clientes = Cliente.objects.all()
+#         clientes = Cliente.objects.all()
 
-        return render(request, "lista_clientes.html", {"clientes": clientes})  
+#         return render(request, "lista_clientes.html", {"clientes": clientes})  
 
 class Detalle_cliente(DetailView):
 
@@ -84,6 +84,12 @@ class EditarCliente(UpdateView):
     template_name = "cliente_update.html"
     fields = ('__all__')
     success_url = '/WebFinal/exito_update/'
+
+class Borracliente(DeleteView):
+
+        model = Cliente
+        template_name = 'borrarcliente.html'
+        success_url = '/WebFinal/lista_clientes'
 
 # def editar_cliente(request, id):
 
