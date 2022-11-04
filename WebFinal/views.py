@@ -85,6 +85,10 @@ class EditarCliente(UpdateView):
     fields = ('__all__')
     success_url = '/WebFinal/exito_update/'
 
+def cliente_actualizado(request):
+
+    return render(request,'exito_update.html')
+
 class Borracliente(DeleteView):
 
         model = Cliente
@@ -129,20 +133,50 @@ class Borracliente(DeleteView):
 
 def form_empleado(request):
     #cuerpo 
-
     return render(request, 'form_empleado')
 
 class Empleados(CreateView):
 
-    model = Cliente
+    model = Empleado
     form_class = Formulario_empleado
     template_name = 'crea_empleado.html'
     success_url = '/WebFinal/exito_empleado/'
+    
+
 
 def empleado_creado(request):
 
     return render(request, 'exito_empleado.html')
 
+class MostrarEmpleados(ListView):
+
+    model = Empleado
+    form_class = Formulario_empleado
+    template_name = 'lista_empleados.html'
+    context_object_name = "empleados"
+
+class Detalle_Empleado(DetailView):
+
+    model = Empleado
+    template_name = "detalle_empleado.html"
+    context_object_name = "empleado"
+
+class BorraEmpleado(DeleteView):
+
+        model = Empleado
+        template_name = 'borrarempleado.html'
+        success_url = '/WebFinal/lista_empleados'
+
+class EditarEmpleado(UpdateView):
+
+    model = Empleado
+    template_name = "empleado_update.html"
+    fields = ('__all__')
+    success_url = '/WebFinal/exito_update_empleado/'
+
+def empleado_actualizado(request):
+
+    return render(request, 'exito_update_empleado.html')
 
 def form_productos(request):
     #cuerpo 
