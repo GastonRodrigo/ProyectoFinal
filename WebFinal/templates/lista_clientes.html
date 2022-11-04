@@ -15,14 +15,16 @@
 
         {% for cliente in clientes %}
         <li>
+            <a href="{% url 'detalle_cliente' cliente.id %}">
             {{cliente}}
+            </a>
         </li>
         <div>
             <form action="{% url 'borracliente' cliente.id %}" method="POST">{% csrf_token %}
                 <button type="submit"> Eliminar </button>
             </form>
             <button>
-                <a href="{% url 'editarcliente' cliente.id %}" >Editar</a>
+                <a href="{% url 'edita_cliente' cliente.id %}" >Editar</a>
             </button>
         </div>
 

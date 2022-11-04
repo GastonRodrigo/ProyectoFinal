@@ -12,21 +12,31 @@ class Formulario_cliente(forms.ModelForm):
         fields = ("nombre","apellido", "telefono", "direccion")
 
 
-class Formulario_empleado(forms.Form):
-    nombre = forms.CharField(max_length=30)
-    apellida = forms.CharField(max_length=30)
-    area = forms.CharField(max_length=30)
-    cargo = forms.CharField(max_length=30)
+class Formulario_empleado(forms.ModelForm):
+    # nombre = forms.CharField(max_length=30)
+    # apellida = forms.CharField(max_length=30)
+    # area = forms.CharField(max_length=30)
+    # cargo = forms.CharField(max_length=30)
+    class Meta:
+        model = Empleado
+        fields = ("nombre","apellido","area","cargo")
 
-class Formulario_proveedores(forms.Form):
-    nombre = forms.CharField(max_length=30)
-    tipo = forms.CharField(max_length=30)
-    telefono = forms.CharField(max_length=30)
-    direccion = forms.CharField(max_length=60)
 
-class Formulario_productos(forms.Form):
-    modelo = forms.CharField(max_length=30)
-    genero = forms.CharField(max_length=30)
-    medidas = forms.CharField(max_length=30)
+class Formulario_proveedores(forms.ModelForm):
+    # nombre = forms.CharField(max_length=30)
+    # tipo = forms.CharField(max_length=30)
+    # telefono = forms.CharField(max_length=30)
+    # direccion = forms.CharField(max_length=60)
 
+    class Meta:
+        model = Proveedores
+        fields = ("nombre","tipo","telefono","direccion")
+
+class Formulario_productos(forms.ModelForm):
+    # modelo = forms.CharField(max_length=30)
+    # genero = forms.CharField(max_length=30)
+    # medidas = forms.CharField(max_length=30)
+    class Meta:
+        model = Productos
+        fields = ("modelo","genero","medidas")
 

@@ -12,7 +12,7 @@ class Cliente(models.Model):
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=30)
-    apellida = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
     area = models.CharField(max_length=30)
     cargo = models.CharField(max_length=30)
 

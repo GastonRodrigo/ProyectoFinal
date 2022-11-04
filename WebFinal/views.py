@@ -14,25 +14,25 @@ def inicio(request):
 
     return render(request, 'inicio2.html')
 
-def form_cliente(request):
+# def form_cliente(request):
 
-    #CREATE
+#     #CREATE
     
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        add_cliente = Formulario_cliente(request.POST)
+#         add_cliente = Formulario_cliente(request.POST)
         
-        if add_cliente.is_valid():
+#         if add_cliente.is_valid():
 
-            datos = add_cliente.cleaned_data
-            nuevo_cliente = Cliente(nombre=datos['nombre'], apellido=datos['apellido'], telefono=datos['telefono'], direccion=datos['direccion'])
-            nuevo_cliente.save()
-            return render(request, 'cliente_creado.html', {'mensaje':'Cliente creado con exito.'})
+#             datos = add_cliente.cleaned_data
+#             nuevo_cliente = Cliente(nombre=datos['nombre'], apellido=datos['apellido'], telefono=datos['telefono'], direccion=datos['direccion'])
+#             nuevo_cliente.save()
+#             return render(request, 'cliente_creado.html', {'mensaje':'Cliente creado con exito.'})
         
-    else:
-        add_cliente = Formulario_cliente()
+#     else:
+#         add_cliente = Formulario_cliente()
 
-    return render(request, 'form_cliente.html', {'add_cliente': add_cliente})
+#     return render(request, 'form_cliente.html', {'add_cliente': add_cliente})
 
 
 class CrearCliente(CreateView):
@@ -44,16 +44,21 @@ class CrearCliente(CreateView):
 
 
     #READ
-def lista_clientes(request):
+# def lista_clientes(request):
 
-    clientes = Cliente.objects.all()
+#     clientes = Cliente.objects.all()
 
-    return render(request, "lista_clientes.html", {"clientes": clientes})
+#     return render(request, "lista_clientes.html", {"clientes": clientes})
 
 def creado_con_exito(request):
 
     return render(request,'crear_exito.html')
 
+class Mostrar_clientes(ListView):
+
+    model = Cliente
+    template_name = "lista_clientes.html"
+    context_object_name = "clientes"
     #EDIT
 
 def borracliente(request, id):
@@ -67,40 +72,53 @@ def borracliente(request, id):
 
         return render(request, "lista_clientes.html", {"clientes": clientes})  
 
-def editar_cliente(request, id):
+class Detalle_cliente(DetailView):
 
-    print('method:', request.method)
-    print('post: ', request.POST)
+    model = Cliente
+    template_name = "detalle_cliente.html"
+    context_object_name = "cliente"
 
-    cliente = Cliente.objects.get(id=id)
+class EditarCliente(UpdateView):
 
-    if request.method == 'POST':
+    model = Cliente
+    template_name = "edita_cliente.html"
+    fields = ('__all__')
+    success_url = '/WebFinal/exito_update/'
 
-        cliente_edit = Formulario_cliente(request.POST)
+# def editar_cliente(request, id):
 
-        if cliente_edit.is_valid():
+#     print('method:', request.method)
+#     print('post: ', request.POST)
 
-            datos = cliente_edit.cleaned_data
+#     cliente = Cliente.objects.get(id=id)
 
-            cliente.nombre = datos["nombre"]
-            cliente.apellido = datos["apellido"]
-            cliente.telefono = datos["telefono"]
-            cliente.direccion = datos["direccion"]
+#     if request.method == 'POST':
 
-            cliente.save()
+#         cliente_edit = Formulario_cliente(request.POST)
 
-            return HttpResponseRedirect('/WebFinal/lista_clientes/')
+#         if cliente_edit.is_valid():
+
+#             datos = cliente_edit.cleaned_data
+
+#             cliente.nombre = datos["nombre"]
+#             cliente.apellido = datos["apellido"]
+#             cliente.telefono = datos["telefono"]
+#             cliente.direccion = datos["direccion"]
+
+#             cliente.save()
+
+#             return HttpResponseRedirect('/WebFinal/lista_clientes/')
     
-    else:
+#     else:
 
-        cliente_edit = Formulario_cliente(initial={
-            "nombre": cliente.nombre,
-            "apellido": cliente.apellido,
-            "telefono": cliente.telefono,
-            "direccion": cliente.direccion,
-        })
+#         cliente_edit = Formulario_cliente(initial={
+#             "nombre": cliente.nombre,
+#             "apellido": cliente.apellido,
+#             "telefono": cliente.telefono,
+#             "direccion": cliente.direccion,
+#         })
 
-        return render(request, "editarcliente.html", {"cliente_edit": cliente_edit, "id": cliente.id})
+#         return render(request, "editarcliente.html", {"cliente_edit": cliente_edit, "id": cliente.id})
 
 
 def form_empleado(request):
