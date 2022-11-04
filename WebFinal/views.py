@@ -81,7 +81,7 @@ class Detalle_cliente(DetailView):
 class EditarCliente(UpdateView):
 
     model = Cliente
-    template_name = "edita_cliente.html"
+    template_name = "cliente_update.html"
     fields = ('__all__')
     success_url = '/WebFinal/exito_update/'
 

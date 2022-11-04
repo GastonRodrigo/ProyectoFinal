@@ -4,11 +4,11 @@
 
 {% block secciones %}
         
-    <form action="{% url 'edita_cliente'  %}" method="POST">{% csrf_token %}
+    <form action="{% url 'form_cliente' %}" method="POST">{% csrf_token %}
 
         {{form.as_p}}
 
-        <input type="submit" value="Actualizar"/>
+        <input type="submit" value="Modificar"/>
 
     </form>
 

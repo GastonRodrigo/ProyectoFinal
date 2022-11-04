@@ -14,6 +14,6 @@ urlpatterns = [
     #path('editar-cliente/<int:id>', editar_cliente, name='editarcliente'),
     path('crear_exito/', creado_con_exito, name='crear_exito'),
     path('detalle_cliente/<pk>', Detalle_cliente.as_view(), name='detalle_cliente'),
-    path('edita_cliente/<pk>', EditarCliente.as_view(), name='edita_cliente'),
+    path('clienteupdate/<pk>', EditarCliente.as_view(), name='clienteupdate'),
 
 ]
